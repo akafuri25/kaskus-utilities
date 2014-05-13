@@ -1,0 +1,96 @@
+<head>
+	<title>Kaskus Utilities (Beta)</title>
+	<link rel="stylesheet" href="style.css">
+	<body>
+		<h1>Kaskus Utilities (BETA)</h1>
+		<p>This tools Help you to improved to read thread in kaskus with optional tools.</p>
+		<section>
+			<h2>Developer tools</h2>
+			
+			<div class="option">
+				<label><input type="checkbox"> Enable Syntax Highlighter</label>
+			</div>
+			<div class="option">
+				<label><input type="checkbox"> Enable JSFiddle Embed Feature</label>
+				<div class="extra">
+					<small>Enable automatic render</small>
+					<label><input type="radio" name="s1" value="0" checked> On</label>
+					<label><input type="radio" name="s1" value="1"> Off</label>
+				</div>
+			</div>
+			<div class="option">
+				<label><input type="checkbox"> Enable Jsbin Embed Feature</label>
+				<div class="extra">
+					<small>Enable automatic render</small>
+					<label><input type="radio" name="s2" value="0" checked> On</label>
+					<label><input type="radio" name="s2" value="1"> Off</label>
+				</div>
+			</div>
+			<div class="option">
+				<label><input type="checkbox"> Enable Codepen Embed Feature</label>
+				<div class="extra">
+					<small>Enable automatic render</small>
+					<label><input type="radio" name="s2" value="0" checked> On</label>
+					<label><input type="radio" name="s2" value="1"> Off</label>
+				</div>
+			</div>
+		</section>
+		<section>
+			<h2>Music Zone</h2>
+			comming soon
+		</section>
+
+		<section>
+			<h2>Extra Emoticon</h2>
+			comming soon
+		</section>
+
+		<section>
+			<h2>Other</h2>
+			<div class="option">
+				<label><input type="checkbox"> Enable Twitter Embed feature</label>
+			</div>
+			<div class="option">
+				Sidebarless style : 
+				<label><input type="radio" name="s3" value="0" checked disabled> On</label>
+				<label><input type="radio" name="s3" value="1" disabled> Off</label>
+			</div>
+			<div class="option">
+				Enable Post Marked : 
+				<label><input type="radio" name="s4" value="0"> On</label>
+				<label><input type="radio" name="s4" value="1" checked> Off</label>
+			</div>
+			<div class="option">
+				<button>Clear Data</button>
+				<button>Set Default</button>
+			</div>
+		</section>
+		<script src="jquery.js"></script>
+		<script src="jstorage.js"></script>
+		<script src="option.js"></script>
+		<style>
+		body {
+			padding: 50px 200px;
+		}
+	
+		section {
+			background: #fafafa;
+			padding: 20px;
+			margin-bottom: 20px;
+		}
+		section h2 {
+			margin: 0 0 10px;
+		}
+
+		.option {
+			padding: 10px 0px;
+			border-bottom: 1px solid #eaeaea;
+		}
+
+		.option .extra {
+			padding-left: 20px;
+			display: none;
+		}
+		</style>
+	</body>
+</head>

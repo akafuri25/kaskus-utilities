@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "Kaskus Utilities (BETA)",
+  "description": "This extension demonstrates a 'browser action' with kittens.",
+  "version": "0.1",
+  "options_page": "options.html",
+  "content_scripts": [{
+    "matches": ["http://www.kaskus.co.id/*"],
+    "css": ["new-kaskus.css"],
+    "js": ["jquery.js", "main.js"]
+  }],
+  /*"browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },*/
+  "permissions": [
+    "http://www.kaskus.co.id/",
+    "tabs"
+  ]
+}
