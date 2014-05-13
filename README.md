@@ -20,9 +20,9 @@ Development Version Google Chrome
 - Post header colour
 - Tampilan horizyontal
 
-![](https://raw.githubusercontent.com/pedox/kaskus-utilities/img-doc/ss-1.png)
+![](https://raw.githubusercontent.com/pedox/kaskus-utilities/master/img-doc/ss-1.png)
 
-![](https://raw.githubusercontent.com/pedox/kaskus-utilities/img-doc/ss-2.png)
+![](https://raw.githubusercontent.com/pedox/kaskus-utilities/master/img-doc/ss-2.png)
 
 ---
 
