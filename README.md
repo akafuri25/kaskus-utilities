@@ -4,6 +4,13 @@ ya untuk membuat ngaskus agag lebih enak-an aja sih :sunglasses:
 
 Development Version Google Chrome
 
+## Latest changes
+
+	14-06-2014
+	- Sekarang bisa dipake di new kaskus !
+	- Option Page nya udah bisya juga !
+
+
 ## Rules
 
 - Silahkan Pull request untuk yang mau bantu bangun rumah :smirk:

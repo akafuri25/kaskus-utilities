@@ -96,8 +96,8 @@
 }
 
 .white.button {
-	background: #F2F2F2 !important;
-	border: 1px solid #CCC !important;
+	background: #3A86BC !important;
+	border: 0 !important;
 	box-shadow: none !important;
 	border-radius: 0 !important;
 	padding: 2px 15px 0px !important;
@@ -128,6 +128,15 @@
 	color: #FFF !important;
 }
 
+.user-tools a.button {
+	padding: 0px 11px !important;
+	border: 1px solid rgba(0,0,0,0.0) !important;
+}
+
+.user-tools a.button i {
+	font-size: 13px !important;
+}
+
 /* ------------- FJB ------------------- */
 
 body.fjb .hfeed .entry-head {
@@ -154,4 +163,83 @@ body.fjb .hfeed .entry-head .permalink a, body.fjb .hfeed .entry-date {
 	color: #333;
 	border-bottom: 1px solid #EAEAEA;
 	margin-bottom: 15px;
+}
+
+/* ----------- NEW  --------------- */
+
+header#site-header-q {
+	background: #3A86BC !important;
+	border-top: 5px solid #f7931c;
+}
+
+body.q ul.nav-header>li a {
+	color: #fff !important;
+}
+
+.left.nav-header li a:hover, .left.nav-header li.current a {
+	background: #2e71a0 !important;
+	color: #e9e9e9 !important;
+}
+
+.right.user-control li:last-child > a, .right.user-control .tools {
+	color: #fff !important;
+}
+
+h1.logo img {
+	/*width: 60px !important;
+	height: 60px !important;
+	margin-top: 5px !important;
+	margin-left: 30px !important;*/
+	margin-right: 15px !important;
+}
+
+ul.user-control #after-login .vcard {
+	border-radius: 0px !important;
+	border: 0px !important;
+	margin-top: 10px !important;
+	background-size: cover !important;
+}
+
+.st-btn#c-thread {
+	background: #3A86BC !important;
+}
+
+.st-btn#c-thread .icon, .st-btn#sell .icon  {
+	border: none !important;
+}
+
+.st-btn#sell {
+	background: #8ab13e !important;
+}
+
+.btn-whatsnew {
+	display: none;
+}
+
+body.q {
+	background: #E3DFD7 !important;
+}
+
+#side-guide-trigger {
+	background: #FAFAFA !important;
+}
+
+li.signout a {
+	color: #F02929 !important;
+}
+
+#before-login .tools > a {
+	color: #fff !important;
+}
+
+.embed-open {
+	background: #0976BC;
+	color: #FFF;
+	padding: 3px 7px;
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none !important;
+	margin-left: 10px;
 }

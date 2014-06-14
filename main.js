@@ -1,6 +1,25 @@
+var storage = chrome.storage.local;
+
 var $menuatas = $(".meta-header-bar.mobile-hide ul")
 ,	$menukiri = $(".meta-header-bar.log-bar > ul")
-,	login = $(".meta-header-bar .vcard a .fn").html();
+,	login = $("#after-login .tools").html();
+
+
+/**
+ * Global Variable
+ * AUTO | MANUAL
+ */
+
+ var jsfiddle = 'manual'
+ ,	 codepen  = 'manual'
+ ,	 jsbin	  = 'manual';
+
+
+if(login) {
+	login = login.split("Hi, ")[1];
+} else {
+	login = null;
+}
 
 
 var lmenu	= [{'name':'Settings','url':'#'},{'name':'Kulkas','url':'#'},{'name':'My Post','url':'#'}, {'name':'Subsribe Thread','url':'#'}]
@@ -89,20 +108,86 @@ $("#op-kulkas").click(function(){
 $("a[href^='http://codepen.io/'][href*='/pen/']").each(function(){
 	var $ini = $(this)
 	,	data = $ini.attr("href").split("/");
-	$ini.after('<p data-height="546" data-theme-id="0" data-slug-hash="'+data[5]+'" data-user="'+data[3]+'" data-default-tab="result" class="codepen">');
+
+	storage.get("codepen", function(option) {
+	
+		if(option.codepen.tipe)
+		{
+			if(option.codepen.auto == false) {
+				$ini.after("<a href='javascript://' class='open-manual embed-open' data-tipe='codepen' data-t1='"+data[5]+"' data-t2='"+data[3]+"'>View Codepen</a>");
+			} else {
+				$ini.after('<p data-height="545" data-theme-id="0" data-slug-hash="'+data[5]+'" data-user="'+data[3]+'" data-default-tab="result" class="codepen"> <script async src="//codepen.io/assets/embed/ei.js"></script>');
+			}
+		}
+
+	});
 });
 
-$("body").append('<script async src="//codepen.io/assets/embed/ei.js"></script>');
-
 //Pretty Print
-$("pre").addClass("prettyprint linenums").css({'background-color':'#333'});
-var pretty_css = 'pre ol.linenums {list-style-type: decimal;margin-left: 30px;} pre ol.linenums li {list-style-type: decimal;}';
-$("body").append('<script async src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=desert"></script><style>'+pretty_css+'</style>');
+storage.get("syntax", function(option) {
+	if(option.syntax.tipe) {
+		$("pre").addClass("prettyprint linenums").css({'background-color':'#333','border':'none'});
+		var pretty_css = 'pre ol.linenums {list-style-type: decimal;margin-left: 30px;} pre ol.linenums li {list-style-type: decimal;}';
+		$("body").append('<script async src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=desert"></script><style>'+pretty_css+'</style><link rel="stylesheet" type="text/css" href="http://jmblog.github.io/color-themes-for-google-code-prettify/css/themes/tomorrow-night.css">');
+	}
+});
 
 
 //JSFiddle
-$("a[href^='http://jsfiddle.net/'][href*='/embedded/']").each(function(){	
-	$(this).after('<iframe width="100%" height="300" src="'+$(this).attr('href')+'" allowfullscreen="allowfullscreen" frameborder="0"></iframe>');
+$("a[href^='http://jsfiddle.net/'][href*='/embedded/']").each(function(a,b){	
+	var $ini = $(this);
+	storage.get("jsfiddle", function(option) {
+
+		if(option.jsfiddle.tipe)
+		{
+			if(option.jsfiddle.auto == false) {
+				$ini.after("<a href='javascript://' class='open-manual embed-open' data-tipe='jsfiddle' data-url='" + $ini.attr("href") + "'>View Jsfiddle</a>")
+			} else {
+				$ini.after('<iframe width="100%" height="545" src="'+$ini.attr('href')+'" allowfullscreen="allowfullscreen" frameborder="0"></iframe>');
+			}
+		}
+
+	});
+
+});
+
+//JSBin
+$("a[href^='http://jsbin.com/'][href*='/embed']").each(function(a,b){	
+	var $ini = $(this);
+	storage.get("jsbin", function(option) {
+
+		if(option.jsbin.tipe)
+		{
+			if(option.jsbin.auto == false) {
+				$ini.after("<a href='javascript://' class='open-manual embed-open' data-tipe='jsbin' data-url='" + $ini.attr("href") + "'>View JSbin</a>");
+			} else {
+				$ini.after('<a class="jsbin-embed" href="' + $ini.attr("href") + '">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script>');
+			}
+		}
+	
+	});
+
+});
+
+
+$(".open-manual").on('click', function() {
+	var tipe = $(this).data("tipe");
+	
+	if(tipe == 'jsfiddle') {
+		$(this).after('<iframe width="100%" height="545" src="'+$(this).data('url')+'" allowfullscreen="allowfullscreen" frameborder="0"></iframe>');
+		$(this).remove();
+	}
+
+	if(tipe == 'codepen') {
+		$(this).after('<p data-height="545" data-theme-id="0" data-slug-hash="' + $(this).data("t1") + '" data-user="' + $(this).data("t2") + '" data-default-tab="result" class="codepen"> <script async src="//codepen.io/assets/embed/ei.js"></script>');
+		$(this).remove();
+	}
+
+	if(tipe == 'jsbin') {
+		$(this).after('<a class="jsbin-embed" href="' + $(this).data("url") + '">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script>');
+		$(this).remove();
+	}
+
 });
 
 //====
@@ -113,29 +198,30 @@ if(login){
 
 	var real = login;
 
-	console.log("testTIIIIIIIINNNGGGG !!!", real);
+	//console.log("testTIIIIIIIINNNGGGG !!!", real);
 
 	$('.row[id^="post"]').each(function(a,b) {
 		var ini = $(this);
 		var dme = ini.find(".author.vcard .user-details a.nickname").html();
 
-		ini.find(".entry .post-quote").each(function(a,b) {
+		ini.find(".entry > .post-quote").each(function(a,b) {
 			var itu = $(this)
 			,	author = itu.find("span:last-child b").html();
 			if(author == real) {
 				ini.find(".entry-head").attr('style', 'background:#E09855 !important');
 				ini.find(".hfeed").attr('style', 'border-left:5px solid #BB7D43 !important');
 				
-				itu.find("span:last-child").attr('style',
-					'box-shadow: 0px 0px 10px rgba(74, 141, 204, 0.46) !important; border:1px solid rgba(74, 141, 204, 0.46)!important;padding: 5px;color: #484848;display: block;width: 95%;margin: auto;border: 1px inset;');
-				console.log("Found", ini.find(".author.vcard .user-details a.nickname").html());
+				itu.find("> span:last-child").attr('style',
+					'box-shadow: 0px 0px 0px 5px rgba(74, 141, 204, 0.15) !important; border:1px solid rgba(74, 141, 204, 0.46)!important;padding: 5px;color: #484848;display: block;width: 95%;margin: auto;border: 1px inset;');
+				//console.log("Found", ini.find(".author.vcard .user-details a.nickname").html());
 			}
+			//console.log('ada saya', a);
 		});
 
 		if(dme == " " + real + " ") {
 			ini.find(".entry-head").attr('style', 'background:#62B396 !important');
 			ini.find(".hfeed").attr('style', 'border-left:5px solid #579B83 !important');
+			//console.log('post saya');
 		}
 	});
 }
-

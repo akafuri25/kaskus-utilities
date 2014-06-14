@@ -8,7 +8,7 @@
   "content_scripts": [{
     "matches": ["http://www.kaskus.co.id/*"],
     "css": ["new-kaskus.css"],
-    "js": ["jquery.js", "main.js"]
+    "js": ["jquery.js", "main.js", "option.js"]
   }],
   /*"browser_action": {
     "default_icon": "icon.png",
@@ -16,6 +16,7 @@
   },*/
   "permissions": [
     "http://www.kaskus.co.id/",
-    "tabs"
+    "tabs",
+    "storage"
   ]
 }
