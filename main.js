@@ -213,12 +213,6 @@ $("a[href^='http://jsfiddle.net/']").each(function(a,b){
 	
 });
 
-$("iframe[src*='http://jsfiddle.net/']").each(function(){
-	var iframe_ini = $(this);
-	$(iframe_ini).contents().find(".contentWrap").css( "background-color", "#BADA55" );
-	
-});
-
 //JSBin
 $("a[href^='http://jsbin.com/'][href*='/embed']").each(function(a,b){	
 	var $ini = $(this);
