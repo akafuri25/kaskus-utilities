@@ -134,21 +134,89 @@ storage.get("syntax", function(option) {
 
 
 //JSFiddle
-$("a[href^='http://jsfiddle.net/'][href*='/embedded/']").each(function(a,b){	
+$("a[href^='http://jsfiddle.net/']").each(function(a,b){	
 	var $ini = $(this);
+	var ini_href = $ini.attr('href');
+	var reg = /\bjsfiddle\.net\/user\/([^&\b\?]+)/i;
+	if (!ini_href.match(reg)) {
 	storage.get("jsfiddle", function(option) {
 
 		if(option.jsfiddle.tipe)
 		{
 			if(option.jsfiddle.auto == false) {
-				$ini.after("<a href='javascript://' class='open-manual embed-open' data-tipe='jsfiddle' data-url='" + $ini.attr("href") + "'>View Jsfiddle</a>")
+				if (jsfiddle_url.toLowerCase().indexOf("embedded") >= 0) {
+					var fiddle_url = jsfiddle_url.replace('jsfiddle', 'fiddle.jshell');
+					$.ajax({
+			            'url': fiddle_url,
+			            data: {},
+			            complete: function(xhr, data) {
+			            if (xhr.status == 404)
+			               $ini.after('<span class="not-found">this fiddle not found</span>');
+			            else
+			               $ini.after("<a href='javascript://' class='open-manual embed-open' data-tipe='jsfiddle' data-url='" + $ini.attr("href") + "'>View Jsfiddle</a>");
+			            }
+			        });
+				} else {
+	                jsfiddle_url = jsfiddle_url.replace(/\/$/, '');
+			        var else_fiddle_url = jsfiddle_url.replace('jsfiddle', 'fiddle.jshell');
+			        $.ajax({
+			            'url': else_fiddle_url + '/embedded',
+			            data: {},
+			            complete: function(xhr, data) {
+			            if (xhr.status == 404)
+			               $ini.after('<span class="not-found">this fiddle not found</span>');
+			            else
+			               $ini.after("<a href='javascript://' class='open-manual embed-open' data-tipe='jsfiddle' data-url='" + $ini.attr("href") + "'>View Jsfiddle</a>"); 
+			            }
+			        });
+			    }
+				
 			} else {
-				$ini.after('<iframe width="100%" height="545" src="'+$ini.attr('href')+'" allowfullscreen="allowfullscreen" frameborder="0"></iframe>');
+				var jsfiddle_url = $ini.attr('href');
+				if (jsfiddle_url.toLowerCase().indexOf("embedded") >= 0) {
+					var fiddle_url = jsfiddle_url.replace('jsfiddle', 'fiddle.jshell');
+                	var iframe = '<iframe width="100%" height="300" src="'+jsfiddle_url+'" frameborder="0"></iframe>';
+                	$.ajax({
+			            'url': fiddle_url,
+			            data: {},
+			            complete: function(xhr, data) {
+			            if (xhr.status == 404)
+			               $ini.after('<span class="not-found">this fiddle not found</span>');
+			            else
+			               $ini.after(iframe); 
+			            }
+			        });
+	            }
+	            else {
+	                jsfiddle_url = jsfiddle_url.replace(/\/$/, '');
+			        var else_fiddle_url = jsfiddle_url.replace('jsfiddle', 'fiddle.jshell');
+			        var iframe = '<iframe width="100%" height="300" src="' + jsfiddle_url + '/embedded" frameborder="0"></iframe>';
+
+			        $.ajax({
+			            'url': else_fiddle_url + '/embedded',
+			            data: {},
+			            complete: function(xhr, data) {
+			            if (xhr.status == 404)
+			               $ini.after('<span class="not-found">this fiddle not found</span>');
+			            else
+			               $ini.after(iframe); 
+			            }
+			        });
+	            }
+				
 			}
 		}
 
 	});
+    }
+    
+	
+});
 
+$("iframe[src*='http://jsfiddle.net/']").each(function(){
+	var iframe_ini = $(this);
+	$(iframe_ini).contents().find(".contentWrap").css( "background-color", "#BADA55" );
+	
 });
 
 //JSBin
