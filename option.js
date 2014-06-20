@@ -44,6 +44,16 @@ function loadLast () {
 			loadLast();
 		}
 	});
+
+	//Quick edit
+	storage.get("quickedit", function (item) {
+		if(item.quickedit) {
+			load_saved('quickedit', item.quickedit);
+		} else {
+			storage.set({"quickedit": {"tipe" : false}}, sett_save("quickedit"));
+			loadLast();
+		}
+	});
 }
 
 function sett_save (isi) {

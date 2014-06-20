@@ -222,6 +222,50 @@ if(login){
 			ini.find(".entry-head").attr('style', 'background:#62B396 !important');
 			ini.find(".hfeed").attr('style', 'border-left:5px solid #579B83 !important');
 			//console.log('post saya');
+			
+			// ==============================
+			// Quick Edit FEATURE !!
+			// ==============================
+			
+			storage.get("quickedit", function(option) {
+				if(option.quickedit.tipe)
+				{
+					var hfed = ini.find('.hfeed');
+					
+					hfed.find('.user-tools a[href^="/edit_post/"]').after('<a href="javascript://" class="button small white qedit" style="margin-left: 3px"><i class="icon-edit icon-large"></i> Quick Edit</a>');
+
+					hfed.find(".user-tools a.qedit").on('click', function() {
+
+						var postsaya = hfed.find('.entry[itemprop="text"]');
+						$("a.qedit").hide();
+
+						postsaya.css('opacity', 0.5);
+						console.log("di klik !");
+						$.ajax({
+							url  		: hfed.find('.user-tools a[href^="/edit_post/"]').attr('href')
+						,	type 		: 'GET'
+						,	dataType	: 'html'
+						,		
+						}).done(function(data) {
+							postsaya.after('<div class="q-edit"><form method="post" action="' + hfed.find('.user-tools a[href^="/edit_post/"]').attr('href') + '"><textarea id="message-qed" name="message">' + $(data).find("#reply-messsage").html() + '</textarea><input type="hidden" name="securitytoken" value="' + $(data).find("input[type=hidden][name=securitytoken]").val() + '"><div class="footer-qed"><input type="submit" class="button medium blue" name="sbutton" value="Save changes"> <input type="button" class="button medium blue cancel" name="sbutton" value="Cancel"></div></form></div>');
+							postsaya.hide();
+
+							$(".q-edit input.cancel").on('click', function() {
+								$(".q-edit").remove();
+								$("a.qedit").show();
+								postsaya.show();
+								postsaya.css('opacity', 1);
+							});
+
+						}).fail(function() {
+							alert("gagal mengeksekusi !");
+							$("a.qedit").show();
+							postsaya.css('opacity', 1);
+						});
+						return false;
+					});
+				}
+			});
 		}
 	});
 }

@@ -6,6 +6,9 @@ Development Version Google Chrome
 
 ## Latest changes
 
+	20-06-2014
+	- Sekarang bisa pake Quick Edit post
+
 	14-06-2014
 	- Sekarang bisa dipake di new kaskus !
 	- Option Page nya udah bisya juga !
@@ -40,6 +43,10 @@ Development Version Google Chrome
 ![](https://raw.githubusercontent.com/pedox/kaskus-utilities/master/img-doc/ss-1.png)
 
 ![](https://raw.githubusercontent.com/pedox/kaskus-utilities/master/img-doc/ss-2.png)
+
+![](https://raw.githubusercontent.com/pedox/kaskus-utilities/master/img-doc/ss-3.png)
+
+![](https://raw.githubusercontent.com/pedox/kaskus-utilities/master/img-doc/ss-4.png)
 
 ---
 

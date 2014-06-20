@@ -243,3 +243,24 @@ li.signout a {
 	text-decoration: none !important;
 	margin-left: 10px;
 }
+
+/** ---- Quick Edit ---- **/
+
+.q-edit {
+
+}
+
+.q-edit form {
+	height: 500px;
+	padding: 135px 10px 10px;
+}
+
+.q-edit #message-qed {
+	width: 100%;
+	box-sizing: border-box;
+	height: 400px;
+}
+
+.q-edit .footer-qed {
+	margin-top: 15px;
+}
