@@ -17,6 +17,7 @@
   "permissions": [
     "http://www.kaskus.co.id/",
     "tabs",
-    "storage"
+    "storage",
+    "http://fiddle.jshell.net/"
   ]
 }
