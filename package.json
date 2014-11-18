@@ -1,0 +1,23 @@
+{
+	"name": "safe-box",
+	"version": "0.0.0",
+	"description": "Safe Box is Social SlideBox",
+	"author": "pedox",
+	"devDependencies": {
+		"gulp": "^3.8.7",
+		"gulp-livereload": "^2.1.0",
+		"gulp-sass": "^0.7.2",
+		"gulp-uglify": "^0.3.1",
+		"gulp-jade": "*",
+		"gulp-util": "*",
+		"pretty-hrtime": "*",
+		"browserify": "*",
+		"gulp-streamify": "*",
+		"vinyl-source-stream": "*",
+		"run-sequence": "*",
+		"gulp-watch": "*",
+		"gulp-sourcemaps": "*",
+		"gulp-autoprefixer": "*",
+		"gulp-coffee": "*"
+	}
+}

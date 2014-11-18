@@ -5,6 +5,10 @@ ya untuk membuat ngaskus agag lebih enak-an aja sih :sunglasses:
 Development Version Google Chrome
 
 ## Latest changes
+	
+	18-11-2014
+	- Update code style
+	- Using Gulp
 
 	20-06-2014
 	- Sekarang bisa pake Quick Edit post

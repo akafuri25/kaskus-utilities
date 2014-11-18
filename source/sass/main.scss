@@ -1,3 +1,5 @@
+@import "pretty";
+
 .hfeed .author { 
 	width: 100% !important;
 	height: 100px;
@@ -93,15 +95,6 @@
 	background: #3B8CC2 !important;
 	border: 1px solid #3E79A0 !important;
 	box-shadow: none !important;
-}
-
-.white.button {
-	background: #3A86BC !important;
-	color: #fff !important;
-	border: 0 !important;
-	box-shadow: none !important;
-	border-radius: 0 !important;
-	padding: 2px 15px 0px !important;
 }
 
 #site-header .meta-header {
@@ -316,4 +309,41 @@ ul.user-control #notif span {
 	width: 100%;
 	height: 350px;
 	box-sizing: border-box;
+}
+
+/* Alternate shading for lines */
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 { background: transparent !important }
+
+.my-post {
+	.entry-head {
+		background: #62B396 !important;
+	}
+	.hfeed {
+		border-left: 5px solid #579B83 !important;
+	}
+}
+
+
+.my-qt {
+	box-shadow: 0px 0px 0px 5px rgba(74, 141, 204, 0.15) !important; 
+	border: 1px solid rgba(74, 141, 204, 0.46) !important;
+	padding: 5px;
+	color: #484848;
+	display: block;
+	width: 95%;
+	margin: auto;
+	border: 1px inset;
+}
+
+.my-quote {
+	.entry-head {
+		background: #E09855 !important;
+	}
+	.hfeed {
+		border-left: 5px solid #BB7D43 !important;
+	}
 }
