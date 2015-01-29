@@ -11,9 +11,10 @@
     "js": ["jquery.js", "plugin.js", "dist/assets/js/main.js", "option.js"]
   }],
   "permissions": [
-    "http://www.kaskus.co.id/",
+    "http://www.kaskus.co.id/*",
     "tabs",
+    "activeTab",
     "storage",
-    "http://fiddle.jshell.net/"
+    "http://fiddle.jshell.net/*"
   ]
 }

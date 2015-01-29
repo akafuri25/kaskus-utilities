@@ -4,20 +4,20 @@ module.exports = {
 			if(login) {
 			$('.row[id^="post"]').each(function(a,b) {
 				var _p 		= $(this)
-				,	author 	= _p.find(".author.vcard .user-details a.nickname").html()
+				,	author 	= _p.find(".user-name > a.nickname").html()
 				;
 				_t.myPost(_p, author, login);
 				_t.meQuote(_p, author, login);
+				
 			});
 		}
 	},
 
 	myPost: function(e, author, me) {
 		
-		if(author == " " + me + " ") {
+		if(" " +me+ " " == author) {
 			e.addClass("my-post");
 		}
-
 	},
 
 	meQuote: function(e, author, me) {
@@ -27,6 +27,7 @@ module.exports = {
 			if(author == me) {
 				e.addClass("my-quote");
 				itu.find("> span:last-child").addClass('my-qt');
+				console.log("my quote");
 			}
 		});
 	}

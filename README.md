@@ -6,6 +6,12 @@ Development Version Google Chrome
 
 ## Latest changes
 	
+	29-01-2015
+	- New Kaskus
+	- New Style
+	- Beberapa fungsi belom kelar
+	- My Quote and My Post header colour aja dulu heuhue
+	
 	18-11-2014
 	- Update code style
 	- Using Gulp
@@ -47,6 +53,8 @@ Development Version Google Chrome
 ![](https://raw.githubusercontent.com/pedox/kaskus-utilities/master/img-doc/ss-1.png)
 
 ![](https://raw.githubusercontent.com/pedox/kaskus-utilities/master/img-doc/ss-2.png)
+
+## Feature comming
 
 ![](https://raw.githubusercontent.com/pedox/kaskus-utilities/master/img-doc/ss-3.png)
 
