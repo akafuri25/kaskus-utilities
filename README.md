@@ -6,6 +6,9 @@ Development Version Google Chrome
 
 ## Latest changes
 	
+	30-01-2015
+	- Added Blue Style (Berikutnya akan bisa ganti ganti tema yipi !)
+
 	29-01-2015
 	- New Kaskus
 	- New Style

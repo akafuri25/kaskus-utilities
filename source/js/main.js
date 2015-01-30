@@ -14,7 +14,8 @@ if(login) {
 
 console.log(login);
 
-$("body").addClass("clean-theme");
+//$("body").addClass("clean-theme");
+$("body").addClass("blues-theme");
 $(".user-avatar img.photo").removeAttr("height").removeAttr("width");
 
 
